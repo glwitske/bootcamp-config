@@ -64,7 +64,7 @@ bootstrap:
                 idp-source-id: d1730ede-5fad-492c-b651-d71fc492281b   # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-34-test-all-owner   # i.e. bootcamp-01-test-all-owner
               - cdf-group: cdf:all:read
-                idp-source-id: fc22adcc-1462-488b-946c-d91b6c4b9fb9 # for the AAD Group to be matched to cdf-group
+                idp-source-id: fc22adcc-1462-488b-946c-d91b6c4b9fb9  # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-34-test-all-read   # i.e. bootcamp-01-test-all-read
               - cdf-group: cdf:oee:read
                 idp-source-id: 26c4fdb4-73e7-4006-bd22-c83f27f44277
@@ -94,23 +94,23 @@ bootstrap:
     namespaces:
         # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
         - ns-name: src
-          description: Data sources for the Ice Cream Factory # HINT
+          description: Data sources for the Ice Cream Factory  # HINT
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
               - node-name: src:001:sap
-                description: Data from SAP # HINT
+                description: Data from SAP  # HINT
               - node-name: src:002:opcua
-                description: Data from opcua # HINT
+                description: Data from opcua  # HINT
         # HINT: Add another namespace below
 
         - ns-name: uc
-          description: use cases representing the data/products # HINT
+          description: use cases representing the data/products  # HINT
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
               - node-name: uc:001:oee
-                description: use case 001 overall equipment effectiveness # HINT
+                description: use case 001 overall equipment effectiveness  # HINT
                 shared-access:
                     read:
                         - node-name: src:001:sap
