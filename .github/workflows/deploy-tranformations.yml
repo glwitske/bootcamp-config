@@ -4,12 +4,10 @@
 #                          Using OIDC #
 #######################################
 name: Deploy transformations
-
 on:
     push:
-        #branches: [main]
-        branches: [none]
-
+        branches: [main]
+        # branches: [none]
 jobs:
     deploy:
         name: Deploy transformations
@@ -20,26 +18,26 @@ jobs:
                 include:
                     - environment: test
                       # CDF cluster, like bluefield, greenfield or westeurope-1
-                      CDF_CLUSTER: <CDF cluster>
+                      CDF_CLUSTER: westeurope-1
                       # CDF Project name
-                      CDF_PROJECT: <CDF project>
+                      CDF_PROJECT: cdf-bootcamp-34-test
                       # Azure AD tenant id
-                      IDP_TENANT: <AAD tenant id>
+                      IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
+
                     - environment: prod
                       # CDF cluster, like bluefield, greenfield or westeurope-1
-                      CDF_CLUSTER: <CDF cluster>
+                      CDF_CLUSTER: westeurope-1
                       # CDF Project name
-                      CDF_PROJECT: <CDF project>
+                      CDF_PROJECT: cdf-bootcamp-34-prod
                       # Azure AD tenant id
-                      IDP_TENANT: <AAD tenant id>
-
+                      IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
         environment: ${{ matrix.environment}}
         env:
             CDF_HOST: https://${{ matrix.CDF_CLUSTER }}.cognitedata.com/
             # Credentials to be used when running your transformations,
             # as referenced in your manifests
             COGNITE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-            COGNITE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+            COGNITE_CLIENT_SECRET: tr-create_asset_hierarchy${{ secrets.CLIENT_SECRET }}
             CDF_PROJECT_NAME: ${{ matrix.CDF_PROJECT }}
 
         steps:
